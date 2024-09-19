@@ -1,0 +1,19 @@
+scripts:
+  server:
+    - cd src && python manage.py runserver 8080
+  makemigrations:
+    - cd src && python manage.py makemigrations
+  migrate:
+    - cd src && python manage.py migrate
+  shell:
+    - cd src && python manage.py shell
+  createsuperuser:
+    - cd src && python manage.py createsuperuser
+  clean:
+    - cd src && python clean_migrations.py
+  createapp:
+    - cd src && python create_app.py
+  curl_auth: |
+    curl -X POST -H "Content-Type: application/json" -d "{\"email\": \"testuser@gmail.com\", \"password\": \"testuser123\"}" http://127.0.0.1:8080/api/token/pair
+  curl_protect: |
+    curl -X GET -H "Authorization: Bearer <curl_auth-access-token>" http://127.0.0.1:8080/api/me
