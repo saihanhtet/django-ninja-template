@@ -14,7 +14,6 @@ api.register_controllers(NinjaJWTDefaultController)
 # Ensure routers are only attached once
 api.add_router("/users/", "apps.users.api.router")
 
-
 # get user model
 User = get_user_model()
 
